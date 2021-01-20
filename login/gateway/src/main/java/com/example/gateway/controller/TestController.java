@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    private Logger logger = LoggerFactory.getLogger("com.trs/LOGSTASH");
+    private Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
     private KafkaProducer kafkaProducer;

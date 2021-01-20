@@ -7,18 +7,19 @@ scanPeriod 扫描配置周期
 <configuration debug="false" scan="false" scanPeriod="1 seconds">
 
     <!--定义key-value对    后续使用使用${PATTERN}来获取同样的value -->
-    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread%X{sourceThread}]%logger{24} - %msg%n"/>
+    <property name="STDOUT_PATTERN" value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"/>
 
     <!--ConsoleAppender 用于在控制台/屏幕输出日志 日志输出器-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!--定义了一个过滤器,在配置级别之下的日志输出不会被打印出来-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
-        </filter>
+        </filter>sl
         <!-- encoder 默认配置为PatternLayoutEncoder -->
         <!--定义控制台输出格式-->
         <encoder>
-            <pattern>${PATTERN}</pattern>
+            <pattern>${STDOUT_PATTERN}</pattern>
         </encoder>
     </appender>
 
